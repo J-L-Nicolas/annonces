@@ -1,0 +1,26 @@
+/* custome css */
+.cust-title{
+    text-shadow: white 0px 1px 2px;
+}
+
+.cust-spaceHeader{
+    height: 500px;
+}
+.cust-spaceFooter{
+    height: 350px;
+}
+
+/* image type dive */
+.cust-photo{
+    width: 300px;
+    height: 200px;
+    background-color: teal;
+    border-radius: 5px;
+}
+
+.cust-photoback{
+    width: 320px;
+    height: 220px;
+    background-color: rgba(99, 99, 99, 0.719);
+    border-radius: 5px;
+}
