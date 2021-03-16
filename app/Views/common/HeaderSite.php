@@ -73,8 +73,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index.html">
-                                <h2 class="header-title wow fadeInUp cust-title">Les Annonces de Jérémy</h2>
+                            <a class="navbar-brand" href="<?php echo base_url(); ?>">
+                                <h2 class="header-title wow fadeInUp cust-title">Les Annonces</h2>
                             </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="toggler-icon"></span>
@@ -101,6 +101,9 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="page-scroll" href="#blog">Blog</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="<?php echo base_url() ?>/signin">SingIn</a>
                                     </li>
                                 </ul>
                             </div> <!-- navbar collapse -->
