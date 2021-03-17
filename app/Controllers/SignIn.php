@@ -13,13 +13,24 @@ class SignIn extends BaseController
 
 	public function index($searchType = null, $searchElement = null)
 	{
-
 		$data = [
 			'page_title' => 'SignIn',
 		];
 
+		if (!empty($this->request->getVar('form'))){
+			if($this->request->getVar('form') == 'login'){
+				$data = array_merge($data, $this->setLogin());
+			}
+
+			if($this->request->getVar('form') == 'register'){
+				$data = array_merge($data, $this->setRegister());
+			}
+		
+		}
+		
+
 		echo view('common/HeaderSite', $data);
-		echo view('SignIn');
+		echo view('SignIn', $data);
 		echo view('common/FooterSite');
 	}
 
@@ -45,29 +56,47 @@ class SignIn extends BaseController
             dd($data);
 
         }else{
-
-			$data = [
-				'page_title' => 'SignIn',
-				'erros' 	=> $this->validator->getErrors(),
-            ];
-
-			echo view('common/HeaderSite', $data);
-			echo view('SignIn', $data);
-			echo view('common/FooterSite');
+			$tab = [
+				'errors' => $this->validator->getErrors(),
+				'errortype' => "login",
+			];
+			return $tab;
         }
 	}
 
 	public function setRegister(){
-		
-		$data = [
-			'name' 			=> $this->request->getVar('name'),
-			'password'      => $this->request->getVar('password'),
-			'confpassword'  => $this->request->getVar('confpassword'),
-			'email'         => $this->request->getVar('email'),
-			'tel'        	=> $this->request->getVar('tel'),
-			'sex'         	=> $this->request->getVar('sex'),
+
+		$rules = [
+			'name' 			=> 'required|min_length[3]|max_length[50]',
+			'password'      => 'required|min_length[3]',
+			'confpassword'  => 'required|matches[password]',
+			'email'         => 'required|min_length[6]|max_length[50]|valid_email',
+			'tel'        	=> 'required|min_length[9]|max_length[14]',
+			'sex'         	=> 'required',
 		];
-		dd($data);
+
+		if($this->validate($rules)){
+
+			$data = [
+				'name' 			=> $this->request->getVar('name'),
+				'password'      => $this->request->getVar('password'),
+				'confpassword'  => $this->request->getVar('confpassword'),
+				'email'         => $this->request->getVar('email'),
+				'tel'        	=> $this->request->getVar('tel'),
+				'sex'         	=> $this->request->getVar('sex'),
+			];
+
+			dd($data);
+
+		}else{
+
+			$tab = [
+				'errors' => $this->validator->getErrors(),
+				'errortype' => "register",
+			];
+			return $tab;
+        }
+		
 	}
 
 }
