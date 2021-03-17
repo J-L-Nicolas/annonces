@@ -25,7 +25,6 @@ class SignIn extends BaseController
 			if($this->request->getVar('form') == 'register'){
 				$data = array_merge($data, $this->setRegister());
 			}
-		
 		}
 		
 
