@@ -4,5 +4,5 @@ use CodeIgniter\Model;
  
 class AnnoncesModel extends Model{
     protected $table = 'annonces';
-    protected $allowedFields = ['idAnnonces ','idUserAnnonce','idCategoryAnnonce','nameAnnonce','moreAnnonce','priceAnnonce','dateCreateAnnonce'];
+    protected $allowedFields = ['idAnnonces ','idUserAnnonce','idCategoryAnnonce','nameAnnonce','moreAnnonce','priceAnnonce','pictureAnnonce','dateCreateAnnonce'];
 }

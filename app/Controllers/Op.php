@@ -16,6 +16,7 @@ class Op extends BaseController
 
 		$data = [
 			'page_title' => 'Aide',
+			'session'       => $this->session,
 		];
 
 		echo view('common/HeaderSite', $data);

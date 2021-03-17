@@ -35,10 +35,51 @@
                                 </div> <!-- single team -->
                             </div>
                             <ul class=" col-12 list-group list-group-horizontal mt-5">
-                                <li class="col list-group-item">An item</li>
-                                <li class=" col list-group-item">A second item</li>
-                                <li class="col list-group-item">A third item</li>
+                                <li class="col list-group-item">
+                                    <a href="<?php echo base_url() . '/Account/FormAnnonce'?>" class="btn btn-primary">Créer une nouvelle Annonce</a>
+                                </li>
+                                <li class="col list-group-item">
+                                    <a href="#" class="btn btn-primary">Modifier mon Profil</a>
+                                </li>
                             </ul>
+
+                            <div class="section-title text-center pb-30">
+                                <div class="line m-auto"></div>
+                                <h3 class="title"><span>Liste</span> des mes Annonces</h3>
+                            </div> <!-- section title -->
+
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Categoty</th>
+                                        <th scope="col">More</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">picture</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <th scope="row">Toyota</th>
+                                        <td>Auto</td>
+                                        <td><?php echo  substr("Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae sapiente, id repellat optio enim tenetur.", 0, 40) ?>...</td>
+                                        <td>77€</td>
+                                        <td>
+                                            <div>
+                                                <img src="assets/images/not-available.jpg" width="45px" alt="imageProduct">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="#"><i class="lni lni-pencil"></i></a>
+                                            <a href="#"><i class="lni lni-trash"></i></a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
                         </div> <!-- row -->
                     </div> <!-- container -->
                 </section>

@@ -120,7 +120,7 @@
             </div> <!-- container -->
         </div> <!-- navbar area -->
         
-        <div id="home" class="header-hero bg_cover" style="background-image: url(assets/images/banner-bg.svg); position: absolute; z-index: 0;">
+        <div id="home" class="header-hero bg_cover" style="background-image: url(<?php echo base_url(); ?>/assets/images/banner-bg.svg); position: absolute; z-index: 0;">
             <div class="cust-spaceHeader"></div>
             <div id="particles-1" class="particles"></div>
         </div> <!-- header hero -->
