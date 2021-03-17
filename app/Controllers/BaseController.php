@@ -54,6 +54,15 @@ class BaseController extends Controller
 		// E.g.: $this->session = \Config\Services::session();
 	}
 
+	// is user connected
+	public function security(){
+        if (empty($this->session->get()['userID'])){
+
+            header("Location: " . base_url() . '/signin');
+			exit;
+        }
+    }
+
 	
 
 }

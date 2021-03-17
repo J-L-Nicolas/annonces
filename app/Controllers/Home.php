@@ -16,6 +16,7 @@ class Home extends BaseController
 
 		$data = [
 			'page_title' => 'Annonces',
+			'session'       => $this->session,
 		];
 
 		echo view('common/HeaderSite', $data);

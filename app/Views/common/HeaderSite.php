@@ -99,12 +99,18 @@
                                     <li class="nav-item">
                                         <a class="page-scroll" href="#team">Team</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="#blog">Blog</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="<?php echo base_url() ?>/signin">SingIn</a>
-                                    </li>
+                                    <?php if (!empty($session->get()['userID'])) { ?>
+                                        <li class="nav-item">
+                                        <a class="page-scroll " href="<?php echo base_url() ?>/account">Account</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="page-scroll text-danger" href="<?php echo base_url() ?>/signin/disconected">LogOut</a>
+                                        </li>
+                                    <?php }else{ ?>
+                                        <li class="nav-item">
+                                            <a class="page-scroll text-success" href="<?php echo base_url() ?>/signin">SingIn</a>
+                                        </li>
+                                    <?php } ?>
                                 </ul>
                             </div> <!-- navbar collapse -->
                       

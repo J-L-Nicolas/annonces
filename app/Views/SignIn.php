@@ -29,6 +29,10 @@
                                 </label>
                             </div>
 
+                            <?php if (!empty($errortype) && $errortype == 'Faillogin') {?>
+                                        <p class="text-danger">email et/ou mot de passe incorrect(s)</p>
+                                    <?php } ?>
+
                             <input type="hidden" value="login" name='form'>
 
                             <!-- Submit button -->
@@ -115,8 +119,8 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <script type="text/javascript">
-    document.getElementById("form1Example1").focus();
+    document.getElementById("<?php echo $focusInput ?>").focus();
 </script>
