@@ -6,6 +6,8 @@ use App\Models\UsersModel;
 use App\Models\AnnoncesModel;
 use App\Models\CategoryModel;
 
+use CodeIgniter\I18n\Time;
+
 class Account extends BaseController
 {
 
@@ -26,6 +28,8 @@ class Account extends BaseController
 			'page_title'    => 'Profil',
             'session'       => $this->session,
             'user'          =>  $selectUser,
+            'annonces'      => $this->annoncesModel->where('idUserAnnonce', $this->session->get()['userID'])->findAll(),
+            'categoryFind'  => $this->categoryModel
 		];
 
 		echo view('common/HeaderSite', $data);
@@ -34,38 +38,76 @@ class Account extends BaseController
 	}
 
     public function FormAnnonce(){
+     
+        $listecategorys =  $this->categoryModel->findAll();
 
         $data = [
 			'page_title'    => 'new annonces',
             'session'       => $this->session,
+            'categorys' => $listecategorys,
 		];
 
-        if( !empty($this->request->getVar('form')) ){
-            
-            $tab = null;
+        if (!empty($this->request->getVar())){
 
-            if (!empty($this->request->getFile('image'))){
-				
-				$tab['image'] = $this->request->getFile('image');
-				
-			}
-
-            $tab = [
-                'name'      => $this->request->getVar('name'),
-                'more'      => $this->request->getVar('more'),
-                'price'     => $this->request->getVar('price'),
-                'image'     => $this->request->getFile('image'),
-                'category'  => $this->request->getVar('category'),
+            $rules = [
+                'name' 		    => 'required|min_length[3]|max_length[50]',
+                'more'          => 'required|min_length[10]',
+                'price'         => 'required|min_length[1]',
+                'category'      => 'required',
             ];
-
-            dd($tab);
-        }
-
-        $data = [
-			'page_title'    => 'new annonces',
-            'session'       => $this->session,
-		];
     
+            if( $this->validate($rules) ){
+    
+                $data = [  
+                    'idUserAnnonce'     => $this->session->get()['userID'],
+                    'idCategoryAnnonce' => $this->request->getVar('category'),
+                    'nameAnnonce'       => $this->request->getVar('name'),
+                    'moreAnnonce'       => $this->request->getVar('more'),
+                    'priceAnnonce'      => $this->request->getVar('price'),
+                    'pictureAnnonce'    => '',
+                    'dateCreateAnnonce' => Time::now(),
+                ];
+    
+                if ( $this->request->getFile('image')->isValid() ){
+                    
+                    /*  */
+                    $file = $this->request->getFile('image');
+                    
+                    $newName =  $file->getRandomName();
+    
+                    $file->move(ROOTPATH . 'public/assets/images/annonce/original', $newName);
+    
+                    /* creation miniature */
+                    $image = \Config\Services::image()
+                    ->withFile(ROOTPATH . 'public/assets/images/annonce/original/' . $newName)
+                    ->fit(70, 70, 'center')
+                    ->save(ROOTPATH . 'public/assets/images/annonce/min/' . $newName);
+    
+                    /* creation covert pour presentation */
+                    $image = \Config\Services::image()
+                    ->withFile(ROOTPATH . 'public/assets/images/annonce/original/' . $newName)
+                    ->fit(286, 200, 'center')
+                    ->save(ROOTPATH . 'public/assets/images/annonce/cover/' . $newName);
+    
+                    $data['pictureAnnonce'] = $newName;
+                }
+                
+                $this->annoncesModel->save($data);
+
+                header("Location: " . base_url() . '/account');
+			    exit;
+            } else {
+    
+                $data = [
+                    'page_title'    => 'new annonces',
+                    'session'       => $this->session,  
+                    'errors' => $this->validator->getErrors(),
+                    'categorys' => $listecategorys,
+                ];
+            } 
+        }
+        
+     
         echo view('common/HeaderSite', $data);
 		echo view('account/formAnnonce', $data);
 		echo view('common/FooterSite');

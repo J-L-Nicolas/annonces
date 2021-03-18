@@ -8,7 +8,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-8">
                         <div class="footer-about mt-50 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
                             <a class="logo" href="#">
-                                <img src="assets/images/logo.svg" alt="logo">
+                                <img src="<?php echo base_url(); ?>/assets/images/logo.svg" alt="logo">
                             </a>
                             <p class="text">Lorem ipsum dolor sit amet consetetur sadipscing elitr, sederfs diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.</p>
                             <ul class="social">
@@ -138,6 +138,10 @@
     
     <!--====== Main js ======-->
     <script src="<?php echo base_url(); ?>/assets/js/main.js"></script>
+
+    <!--====== custome js ======-->
+    <script src="<?php echo base_url(); ?>/assets/js/custome.js"></script>
+    
     
 </body>
 

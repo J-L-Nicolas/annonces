@@ -14,94 +14,35 @@
             <div class="row justify-content-center">
                 <!-- cards  -->
 
-                <div class="col-lg-4 col-md-7 col-sm-8">
-                    <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                        <div>
-                            <img src="<?php echo base_url(); ?>/assets/images/blog-1.jpg"  />
-                        </div>
-                        <div class="services-content mt-30">
-                            <h4 class="title text-left">Clean</h4>
-                            <p class="text text-left">Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam nonu eirmod tempor invidunt labore.</p>
-                            <a class="more text-center cust-btn" href="#">Plus de détails...<i class="lni-chevron-right"></i></a>
-                        </div>
-                    </div> <!-- single services -->
-                </div>
-                
-                <div class="col-lg-4 col-md-7 col-sm-8">
-                    <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                        <div>
-                            <img src="<?php echo base_url(); ?>/assets/images/blog-1.jpg"  />
-                        </div>
-                        <div class="services-content mt-30">
-                            <h4 class="title text-left">Clean</h4>
-                            <p class="text text-left">Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam nonu eirmod tempor invidunt labore.</p>
-                            <a class="more text-center cust-btn" href="#">Plus de détails...<i class="lni-chevron-right"></i></a>
-                        </div>
-                    </div> <!-- single services -->
-                </div>
-                <div class="col-lg-4 col-md-7 col-sm-8">
-                    <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                        <div>
-                            <img src="<?php echo base_url(); ?>/assets/images/blog-1.jpg"  />
-                        </div>
-                        <div class="services-content mt-30">
-                            <h4 class="title text-left">Clean</h4>
-                            <p class="text text-left">Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam nonu eirmod tempor invidunt labore.</p>
-                            <a class="more text-center cust-btn" href="#">Plus de détails...<i class="lni-chevron-right"></i></a>
-                        </div>
-                    </div> <!-- single services -->
-                </div>
-                <div class="col-lg-4 col-md-7 col-sm-8">
-                    <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                        <div>
-                            <img src="<?php echo base_url(); ?>/assets/images/blog-1.jpg"  />
-                        </div>
-                        <div class="services-content mt-30">
-                            <h4 class="title text-left">Clean</h4>
-                            <p class="text text-left">Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam nonu eirmod tempor invidunt labore.</p>
-                            <a class="more text-center cust-btn" href="#">Plus de détails...<i class="lni-chevron-right"></i></a>
-                        </div>
-                    </div> <!-- single services -->
-                </div>
+                <?php if(!empty($annonces)) {
+                        foreach($annonces as $item) { ?>
 
-                <div class="col-lg-4 col-md-7 col-sm-8">
-                    <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                        <div>
-                            <img src="<?php echo base_url(); ?>/assets/images/blog-1.jpg"  />
-                        </div>
-                        <div class="services-content mt-30">
-                            <h4 class="title text-left">Clean</h4>
-                            <p class="text text-left">Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam nonu eirmod tempor invidunt labore.</p>
-                            <a class="more text-center cust-btn" href="#">Plus de détails...<i class="lni-chevron-right"></i></a>
-                        </div>
-                    </div> <!-- single services -->
-                </div>
-
-                <div class="col-lg-4 col-md-7 col-sm-8">
-                    <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                        <div>
-                            <img src="<?php echo base_url(); ?>/assets/images/blog-1.jpg"  />
-                        </div>
-                        <div class="services-content mt-30">
-                            <h4 class="title text-left">Clean</h4>
-                            <p class="text text-left">Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam nonu eirmod tempor invidunt labore.</p>
-                            <a class="more text-center cust-btn" href="#">Plus de détails...<i class="lni-chevron-right"></i></a>
-                        </div>
-                    </div> <!-- single services -->
-                </div>
-
-                <div class="col-lg-4 col-md-7 col-sm-8">
-                    <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                        <div>
-                            <img src="<?php echo base_url(); ?>/assets/images/blog-1.jpg"  />
-                        </div>
-                        <div class="services-content mt-30">
-                            <h4 class="title text-left">Clean</h4>
-                            <p class="text text-left">Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam nonu eirmod tempor invidunt labore.</p>
-                            <a class="more text-center cust-btn" href="#">Plus de détails...<i class="lni-chevron-right"></i></a>
-                        </div>
-                    </div> <!-- single services -->
-                </div>
+                            <div class="col-lg-4 col-md-7 col-sm-8">
+                                <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+                                    <div>
+                                        <a href="#">
+                                            <img src="<?php echo $item['pictureAnnonce'] != ''? base_url() . "/assets/images/annonce/cover/"  . $item['pictureAnnonce'] : 'pictureAnnonce' ?>"  />
+                                        </a>
+                                        <div class='row'>
+                                        <p class="text text-left col-6"><?php echo $categoryFind->where('idcategory', $item['idCategoryAnnonce'])->first()['nameCategory']?></p>
+                                        <p class="text text-right col-6"><?php echo $usersFind->where('idUser', $item['idUserAnnonce'])->first()['nameUser'] ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="services-content mt-10">
+                                        <h4 class="title text-left"><?php echo $item['nameAnnonce']?></h4>
+                                        <p class="text text-left mt-1"><?php echo  substr($item['moreAnnonce'], 0, 100) ?>...</p>
+                                        <div class="col-12 row">
+                                            <h4 class="text text-center col-12"><?php echo $item['priceAnnonce'] ?>€</h4>
+                                        </div>
+                                        <div class="row">
+                                        <a class="more text-left btn btn-warning col-6" href="#">Ajouter au panier</i></a>
+                                        <a class="more text-right btn btn-link  col-6" href="#">détails...<i class="lni-chevron-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div> <!-- single services -->
+                            </div>
+                <?php } 
+                } ?>
                 <!-- end cards -->
 
             </div> <!-- row -->

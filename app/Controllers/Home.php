@@ -19,14 +19,16 @@ class Home extends BaseController
 
 	public function index($searchType = null, $searchElement = null)
 	{
-		
 		$data = [
 			'page_title' => 'Annonces',
 			'session'       => $this->session,
+			'annonces'      => $this->annoncesModel->findAll(),
+            'categoryFind'  => $this->categoryModel,
+            'usersFind'  => $this->usersModel,
 		];
 
 		echo view('common/HeaderSite', $data);
-		echo view('Home');
+		echo view('Home', $data);
 		echo view('common/FooterSite');
 	}
 

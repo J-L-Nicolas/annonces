@@ -60,22 +60,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                    <tr>
-                                        <th scope="row">Toyota</th>
-                                        <td>Auto</td>
-                                        <td><?php echo  substr("Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae sapiente, id repellat optio enim tenetur.", 0, 40) ?>...</td>
-                                        <td>77€</td>
-                                        <td>
-                                            <div>
-                                                <img src="assets/images/not-available.jpg" width="45px" alt="imageProduct">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <a href="#"><i class="lni lni-pencil"></i></a>
-                                            <a href="#"><i class="lni lni-trash"></i></a>
-                                        </td>
-                                    </tr>
+                                    <?php if (!empty($annonces)){
+                                            foreach($annonces as $item){ ?>
+                                                <tr>
+                                                    <th scope="row"><?php echo $item['nameAnnonce']?></th>
+                                                    <td><?php echo $categoryFind->where('idcategory', $item['idCategoryAnnonce'])->first()['nameCategory']?></td>
+                                                    <td><?php echo  substr($item['moreAnnonce'], 0, 40) ?>...</td>
+                                                    <td><?php echo $item['priceAnnonce'] ?>€</td>
+                                                    <td>
+                                                        <div><img src="<?php echo $item['pictureAnnonce'] != ''? base_url() . "/assets/images/annonce/min/"  . $item['pictureAnnonce'] : 'pictureAnnonce' ?>" width="45px" alt="imageProduct"></div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#"><i class="lni lni-pencil"></i></a>
+                                                        <a href="#"><i class="lni lni-trash"></i></a>
+                                                    </td>
+                                                </tr>
+                                        <?php } 
+                                    }?>
 
                                 </tbody>
                             </table>
