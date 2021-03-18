@@ -19,12 +19,28 @@ class Home extends BaseController
 
 	public function index($searchType = null, $searchElement = null)
 	{
+		$listeAnnonces = null;
+		$idcategoy = 0;
+	
+		if(!empty($this->request->getVar('categorySelected')) && $this->request->getVar('categorySelected') != 0){
+			
+			$listeAnnonces = $this->annoncesModel->where('idCategoryAnnonce', $this->request->getVar('categorySelected'))->paginate(9);
+			$idcategoy = $this->request->getVar('categorySelected');
+		}else{
+
+			$listeAnnonces = $this->annoncesModel->paginate(9,'group1');
+		}
+
 		$data = [
 			'page_title' => 'Annonces',
 			'session'       => $this->session,
-			'annonces'      => $this->annoncesModel->findAll(),
+			'annonces'      => $listeAnnonces,
+			'listeCategory' => $this->categoryModel->findAll(),
             'categoryFind'  => $this->categoryModel,
-            'usersFind'  => $this->usersModel,
+            'usersFind'  	=> $this->usersModel,
+			'idcategoy' 	=> $idcategoy,
+			'pager'			=> $this->annoncesModel->pager,
+
 		];
 
 		echo view('common/HeaderSite', $data);
