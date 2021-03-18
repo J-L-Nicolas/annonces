@@ -30,3 +30,59 @@
     color: rgb(0, 0, 0) !important;
     text-shadow: rgb(255, 255, 255) 1px 1px 2px !important;
 }
+
+.cust-formupdateannonce{
+    background-color: rgba(255, 255, 255, 0.692) !important;
+    border: solid rgb(25, 95, 201) 2px !important;
+}
+.cust-labelimage{
+    position: relative;
+}
+
+.cust-labelimage img:hover ~ .cust-font{
+    visibility: visible;
+}
+.cust-font:hover{
+    visibility: visible;
+    cursor: pointer;
+}
+.cust-font:hover ~ .cust-button{
+    visibility: visible;
+}
+.cust-font{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.274);
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    left: 0px;
+}
+
+.cust-button:hover{
+    visibility: visible;
+    cursor: pointer;
+}
+
+.cust-button:hover *{
+    visibility: visible;
+}
+.cust-button{
+
+    display: block;
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    width: 70px;
+    height: 26px;
+    background-color: darkturquoise;
+    border-radius: 13px;
+    color: white;
+    left: 35%;
+    top: 45%;
+    visibility: hidden;
+
+}
+.cust-pitureForm{
+    height: 250px; 
+    cursor: pointer;
+}

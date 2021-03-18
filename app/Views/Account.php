@@ -68,10 +68,10 @@
                                                     <td><?php echo  substr($item['moreAnnonce'], 0, 40) ?>...</td>
                                                     <td><?php echo $item['priceAnnonce'] ?>€</td>
                                                     <td>
-                                                        <div><img src="<?php echo $item['pictureAnnonce'] != ''? base_url() . "/assets/images/annonce/min/"  . $item['pictureAnnonce'] : 'pictureAnnonce' ?>" width="45px" alt="imageProduct"></div>
+                                                        <div><img src="<?php echo $item['pictureAnnonce'] != ''? base_url() . "/assets/images/annonce/min/"  . $item['pictureAnnonce'] : base_url() . '/assets/images/not-available.jpg' ?>" width="45px" alt="imageProduct"></div>
                                                     </td>
                                                     <td>
-                                                        <a href="#"><i class="lni lni-pencil"></i></a>
+                                                        <a href="<?php echo base_url() . '\account\updateformAnnonce/' .  $item['idAnnonce'] . '/' . $item['idUserAnnonce']?>"><i class="lni lni-pencil"></i></a>
                                                         <a href="#"><i class="lni lni-trash"></i></a>
                                                     </td>
                                                 </tr>
