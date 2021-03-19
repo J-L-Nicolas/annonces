@@ -17,18 +17,49 @@ document.querySelector('#categorySelected').addEventListener('change',(e)=>{
     document.querySelector('#formcategory').submit();
 })
 
-/* event clik detail(more) annonce */
+/* event clik open detail(more) annonce */
 $('.cust-clikmore').on('click', (e) =>{
-
-    $('#detailAnnonce').css('display', 'block');
     let sendId = e.target.id
-   
+    
+    rederDom(sendId);
+})
+
+/* closse detail(more) */
+$('.close_mor').on('click', (e) =>{
+    $('#detailAnnonce').css('display', 'none');
+})
+/* **************** Functions ******************* */
+
+function directRequestApi(url, methode, data){
     let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            let annonceDetail = JSON.parse(this.responseText)[0];
-            console.log(annonceDetail);
+    
+    xhttp.open(methode, url);
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send(JSON.stringify(data));
+    return new Promise(resolve => {
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                
+                resolve(JSON.parse(this.responseText));
+                
+            }
+        };
+    });
+}
+
+
+/* rendu du popup detail an lien avec la requet ajax */
+async function rederDom(sendId){
+
+    let data = {"id": sendId};
+    let annonceDetail = await directRequestApi("/ApiAnnonces", "POST", data)
+    $('#detailAnnonce').css('display', 'block'); /* afficher popup */
+    if (annonceDetail != undefined){
+        annonceDetail = annonceDetail[0];
+        let userlist = await directRequestApi("/ApiAnnonces/vendeur", "POST", {"id": annonceDetail['idUserAnnonce']})
+        /* render DOM */
             $('#detail-more-name').text(annonceDetail['nameAnnonce']);
+            $('#detail-more-vendeur').text(userlist[0]['nameUser']);
             $('#detail-more-more').text(annonceDetail['moreAnnonce']);
             $('#detail-more-price').text(annonceDetail['priceAnnonce']+'€');
             if(annonceDetail['pictureAnnonce'] != ''){
@@ -37,18 +68,8 @@ $('.cust-clikmore').on('click', (e) =>{
             else{
                 $('#detail-more-img').attr('src', '/assets/images/not-available.jpg');
             }
-        }
-    };
-    xhttp.open("POST", "/ApiAnnonces");
-    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        /* en render DOM */
+    }
+}
 
-    let data = JSON.stringify({ "id": sendId})
-    xhttp.send(data);
-
-})
-
-/* closse detail(more) */
-$('.close_mor').on('click', (e) =>{
-    $('#detailAnnonce').css('display', 'none');
-})
 

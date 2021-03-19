@@ -86,10 +86,11 @@
                         <img id='detail-more-img' class="img-thumbnail"  alt="detail-picture">
                     </div>
                     <div class="col-12 col-md-6 ">
-                        <h2 id="detail-more-name"></h2>
-                        <hr>
-                        <p id="detail-more-more" class='text-white' style="min-height: 100px"></p>
-                        <p  class='text-white text-right'> Prix: <span id="detail-more-price" class="text-danger" style="font-size: 120%"></span></p>
+                        <h2 id="detail-more-name">name</h2>
+                        <p class="text-right" style="border-bottom: solid 1px #ffffff">Vendu par: <span class="text-white" id="detail-more-vendeur">user</span></p>
+                       
+                        <p id="detail-more-more" class='text-white pl-2 mt-2' style="min-height: 100px">more</p>
+                        <p class='text-white text-right'> Prix: <span id="detail-more-price" class="text-danger" style="font-size: 120%">0.00$</span></p>
                         <a class="more text-center cust-main-btn col-12 col-md-6" href="#">Ajouter au panier</i></a>
                     </div>
                     

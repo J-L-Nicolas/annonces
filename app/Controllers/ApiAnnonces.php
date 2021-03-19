@@ -17,11 +17,20 @@ class ApiAnnonces extends BaseController
 		$this->categoryModel = new CategoryModel();
 	}
 
-	public function index($searchType = null, $searchElement = null)
-	{
+	public function index(){
         if ( !empty( $this->request->getVar('id') ) ){
 
             $liste = $this->annoncesModel->where('idAnnonce', $this->request->getVar('id'))->findAll();
+            return $this->response->setJSON($liste);
+        }
+        
+		return $this->response->setJSON(['error' => false]);
+	}
+
+	public function vendeur(){
+        if ( !empty( $this->request->getVar('id') ) ){
+
+            $liste = $this->usersModel->where('idUser', $this->request->getVar('id'))->findAll();
             return $this->response->setJSON($liste);
         }
         
