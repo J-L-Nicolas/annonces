@@ -26,7 +26,9 @@ $('.cust-clikmore').on('click', (e) =>{
 
 /* closse detail(more) */
 $('.close_mor').on('click', (e) =>{
-    $('#detailAnnonce').css('display', 'none');
+    if (e.target == e.currentTarget) {
+        $('#detailAnnonce').css('display', 'none');
+    }
 })
 /* **************** Functions ******************* */
 

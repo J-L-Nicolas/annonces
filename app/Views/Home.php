@@ -69,7 +69,7 @@
     
     <!--====== SERVICES PART ENDS ======-->
 <!-- detail more -->
-<div id="detailAnnonce" class='fadeIn' style="visibility: visible; animation-duration: 0.5s; animation-name: fadeIn;">
+<div id="detailAnnonce" class='fadeIn close_mor' style="visibility: visible; animation-duration: 0.5s; animation-name: fadeIn;">
     <div class="container">
 
         <div class='fadeIn row col-12 mt-5' data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-name: fadeIn;">
@@ -77,21 +77,21 @@
 
                 <div class="col-12 mt-2 mb-5">
                     <button type="button" class="btn btn-dark close_mor">
-                        <i class="lni lni-close"></i>
+                        <i class="lni lni-close close_mor"></i>
                     </button>
                 </div>
 
                 <div class='row'>
-                    <div class="col-12 col-md-6">
+                    <div class="text-center col-12 col-md-6">
                         <img id='detail-more-img' class="img-thumbnail"  alt="detail-picture">
                     </div>
                     <div class="col-12 col-md-6 ">
                         <h2 id="detail-more-name">name</h2>
                         <p class="text-right" style="border-bottom: solid 1px #ffffff">Vendu par: <span class="text-white" id="detail-more-vendeur">user</span></p>
                        
-                        <p id="detail-more-more" class='text-white pl-2 mt-2' style="min-height: 100px">more</p>
+                        <p id="detail-more-more" class='text-white pl-2 mt-2' style="min-height: 200px">more</p>
                         <p class='text-white text-right'> Prix: <span id="detail-more-price" class="text-danger" style="font-size: 120%">0.00$</span></p>
-                        <a class="more text-center cust-main-btn col-12 col-md-6" href="#">Ajouter au panier</i></a>
+                        <a class="more text-center cust-main-btn col-12 col-lg-6" href="#">Ajouter au panier</i></a>
                     </div>
                     
                 </div>
