@@ -85,24 +85,24 @@
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                                 <ul id="nav" class="navbar-nav ml-auto">
                                     <li class="nav-item active">
-                                        <a class="page-scroll" href="<?php echo base_url(); ?>"><i class="lni lni-home"></i>Home</a>
+                                        <a class="page-scroll" href="<?php echo base_url(); ?>"><i class="lni lni-home"></i> Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#about"><i class="lni lni-ticket"></i>About</a>
+                                        <a class="page-scroll" href="#about"><i class="lni lni-ticket"></i> About</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#facts"><i class="lni lni-shopping-basket"></i>Card</a>
+                                        <a class="page-scroll" href="#facts"><i class="lni lni-shopping-basket"></i> Card</a>
                                     </li>
                                     <?php if (!empty($session->get()['userID'])) { ?>
                                         <li class="nav-item">
-                                        <a class="page-scroll " href="<?php echo base_url() ?>/account"><i class="lni lni-user"></i>Account</a>
+                                        <a class="page-scroll " href="<?php echo base_url() ?>/account"><i class="lni lni-user"></i> Account</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="page-scroll text-danger" href="<?php echo base_url() ?>/signin/disconected"><i class="lni lni-exit"></i>LogOut</a>
+                                            <a class="page-scroll text-danger" href="<?php echo base_url() ?>/signin/disconected"><i class="lni lni-exit"></i> LogOut</a>
                                         </li>
                                     <?php }else{ ?>
                                         <li class="nav-item">
-                                            <a class="page-scroll text-success" href="<?php echo base_url() ?>/signin">SingIn</a>
+                                            <a class="page-scroll text-success" href="<?php echo base_url() ?>/signin"> SingIn</a>
                                         </li>
                                     <?php } ?>
                                 </ul>
