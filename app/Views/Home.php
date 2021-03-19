@@ -36,9 +36,9 @@
                             <div class="col-lg-4 col-md-7 col-sm-8">
                                 <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
                                     <div>
-                                        <a href="#">
-                                            <img style='box-shadow: 1px 1px 5px black' src="<?php echo $item['pictureAnnonce'] != ''? base_url() . "/assets/images/annonce/cover/"  . $item['pictureAnnonce'] : 'pictureAnnonce' ?>"  />
-                                        </a>
+                                        
+                                        <img class="cust-clikmore" id="<?php echo $item['idAnnonce'] ?>" style='box-shadow: 1px 1px 5px black; cursor: pointer; height: 286px' src="<?php echo $item['pictureAnnonce'] != ''? base_url() . "/assets/images/annonce/cover/"  . $item['pictureAnnonce'] : base_url() . '/assets/images/not-available.jpg' ?>"  />
+                                        
                                         <div class='row'>
                                         <p class="text text-left col-6"><?php echo $categoryFind->where('idcategory', $item['idCategoryAnnonce'])->first()['nameCategory']?></p>
                                         <p class="text text-right col-6"><?php echo $usersFind->where('idUser', $item['idUserAnnonce'])->first()['nameUser'] ?></p>
@@ -51,8 +51,8 @@
                                             <h4 class="text text-center col-12"><?php echo $item['priceAnnonce'] ?>€</h4>
                                         </div>
                                         <div class="row">
-                                        <a class="more text-left btn btn-warning col-6" href="#">Ajouter au panier</i></a>
-                                        <a class="more text-right btn btn-link  col-6" href="#">détails...<i class="lni-chevron-right"></i></a>
+                                        <a class="more text-center cust-main-btn col-6" href="#">Ajouter au panier</i></a>
+                                        <span class="more text-center main-btn col-6 cust-clikmore" id="<?php echo $item['idAnnonce'] ?>" style="cursor: pointer" >détails...<i class="lni-chevron-right"></i></span>
                                         </div>
                                     </div>
                                 </div> <!-- single services -->
@@ -68,9 +68,35 @@
     </section>
     
     <!--====== SERVICES PART ENDS ======-->
-<script>
-    document.querySelector('#categorySelected').addEventListener('change',(e)=>{
-        console.log('ok change category' );
-        document.querySelector('#formcategory').submit();
-    })
-</script>
+<!-- detail more -->
+<div id="detailAnnonce" class='fadeIn' style="visibility: visible; animation-duration: 0.5s; animation-name: fadeIn;">
+    <div class="container">
+
+        <div class='fadeIn row col-12 mt-5' data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-name: fadeIn;">
+            <div class="alert alert-primary offset-1 col-10 cust-font-detail" role="alert">
+
+                <div class="col-12 mt-2 mb-5">
+                    <button type="button" class="btn btn-dark close_mor">
+                        <i class="lni lni-close"></i>
+                    </button>
+                </div>
+
+                <div class='row'>
+                    <div class="col-12 col-md-6">
+                        <img id='detail-more-img' class="img-thumbnail"  alt="detail-picture">
+                    </div>
+                    <div class="col-12 col-md-6 ">
+                        <h2 id="detail-more-name"></h2>
+                        <hr>
+                        <p id="detail-more-more" class='text-white' style="min-height: 100px"></p>
+                        <p  class='text-white text-right'> Prix: <span id="detail-more-price" class="text-danger" style="font-size: 120%"></span></p>
+                        <a class="more text-center cust-main-btn col-12 col-md-6" href="#">Ajouter au panier</i></a>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

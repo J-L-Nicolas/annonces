@@ -1,6 +1,6 @@
 /* custome css */
 .cust-title{
-    text-shadow: white 0px 1px 2px;
+    text-shadow: rgb(156, 156, 156) 1px 0px 1px;
 }
 
 .cust-spaceHeader{
@@ -85,4 +85,68 @@
 .cust-pitureForm{
     height: 250px; 
     cursor: pointer;
+}
+
+/* ------- detail annonce------------ */
+#detailAnnonce{
+
+    display: none;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.356);
+    z-index: 1000;
+
+}
+.cust-font-detail{
+    -webkit-transition: all 0.4s ease-out 0s;
+    -moz-transition: all 0.4s ease-out 0s;
+    -ms-transition: all 0.4s ease-out 0s;
+    -o-transition: all 0.4s ease-out 0s;
+    transition: all 0.4s ease-out 0s;
+    background: -webkit-linear-gradient(left, #33c8c07a 0%, #119bd2 50%, #33c8c0 100%);
+    background: -o-linear-gradient(left, #33c8c07a 0%, #119bd2 50%, #33c8c0 100%);
+    background: linear-gradient(to right, #33c8c07a 0%, #119bd2 50%, #33c8c0 100%);  
+}
+
+.cust-font-detail:hover {
+    color: #fff;
+    background-position: right center; 
+}
+
+
+/*===== All Button Style =====*/
+.cust-main-btn {
+  display: inline-block;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 0 25px;
+  font-size: 16px;
+  line-height: 48px;
+  border-radius: 8px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  z-index: 5;
+  -webkit-transition: all 0.4s ease-out 0s;
+  -moz-transition: all 0.4s ease-out 0s;
+  -ms-transition: all 0.4s ease-out 0s;
+  -o-transition: all 0.4s ease-out 0s;
+  transition: all 0.4s ease-out 0s;
+  background: -webkit-linear-gradient(left, #fffb00 0%, #d26e11 50%, #fffb00 100%);
+  background: -o-linear-gradient(left, #fffb00 0%, #d26e11 50%, #fffb00 100%);
+  background: linear-gradient(to right,  #fffb00 0%, #d26e11 50%, #fffb00 100%);
+  background-size: 200%; 
+}
+  .cust-main-btn:hover {
+    color: #fff;
+    background-position: right center; 
 }

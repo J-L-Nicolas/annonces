@@ -20,9 +20,9 @@ class SignIn extends BaseController
 	public function index($searchType = null, $searchElement = null){
 
 		$data = [
-			'page_title' => 'SignIn',
-			'session'       => $this->session,
-			'focusInput' => 'form1Example1'
+			'page_title' 	=> 'SignIn',
+			'session' 		=> $this->session,
+			'focusInput' 	=> 'form1Example1'
 		];
 
 		if (!empty($this->request->getVar('form'))){
@@ -48,15 +48,15 @@ class SignIn extends BaseController
 	public function setLogin(){
 
 		$rules = [
-			'email'         => 'required|min_length[6]|max_length[50]|valid_email',
-            'password'     => 'required|min_length[3]|max_length[200]',
+			'email'        	=> 'required|min_length[6]|max_length[50]|valid_email',
+            'password'     	=> 'required|min_length[3]|max_length[200]',
         ];
 
 		if($this->validate($rules)){
 
             $data = [
-				'email'             => $this->request->getVar('email'),
-                'password'        => $this->request->getVar('password'),
+				'email'       	=> $this->request->getVar('email'),
+                'password'      => $this->request->getVar('password'),
             ];
 
             if ($user = $this->userModel->where('emailUser', $data['email'])->first()){
@@ -79,7 +79,7 @@ class SignIn extends BaseController
         }else{
 
 			$tab = [
-				'errors' => $this->validator->getErrors(),
+				'errors' 	=> $this->validator->getErrors(),
 				'errortype' => "login",
 			];
         }
@@ -127,7 +127,7 @@ class SignIn extends BaseController
 		}else{
 
 			$tab = [
-				'errors' => $this->validator->getErrors(),
+				'errors' 	=> $this->validator->getErrors(),
 				'errortype' => "register",
 			];
 
