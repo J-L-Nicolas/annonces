@@ -37,7 +37,7 @@
                                 <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
                                     <div>
                                         
-                                        <img class="cust-clikmore" id="<?php echo $item['idAnnonce'] ?>" style='box-shadow: 1px 1px 5px black; cursor: pointer; height: 286px' src="<?php echo $item['pictureAnnonce'] != ''? base_url() . "/assets/images/annonce/cover/"  . $item['pictureAnnonce'] : base_url() . '/assets/images/not-available.jpg' ?>"  />
+                                        <img class="cust-clikmore" id="<?php echo $item['idAnnonce'] ?>" style='box-shadow: 1px 1px 5px black; cursor: pointer; ' src="<?php echo $item['pictureAnnonce'] != ''? base_url() . "/assets/images/annonce/cover/"  . $item['pictureAnnonce'] : base_url() . '/assets/images/not-available.jpg' ?>"  />
                                         
                                         <div class='row'>
                                         <p class="text text-left col-6"><?php echo $categoryFind->where('idcategory', $item['idCategoryAnnonce'])->first()['nameCategory']?></p>
