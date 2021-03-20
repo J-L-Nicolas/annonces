@@ -26,6 +26,7 @@ class Account extends BaseController
 
 		$data = [
 			'page_title'    => 'Profil',
+            'activeMenu' 	=> 'account',
             'session'       => $this->session,
             'user'          =>  $selectUser,
             'annonces'      => $this->annoncesModel->where('idUserAnnonce', $this->session->get()['userID'])->findAll(),
@@ -43,6 +44,7 @@ class Account extends BaseController
 
         $data = [
 			'page_title'    => 'new annonces',
+            'activeMenu' 	=> 'account',
             'session'       => $this->session,
             'categorys' => $listecategorys,
 		];
@@ -129,6 +131,7 @@ class Account extends BaseController
 
         $data = [
 			'page_title'    => 'Edit annonces',
+            'activeMenu' 	=> 'account',
             'session'       => $this->session,
             'annonce'       => $annonce,
             'annoncesid'    => $id,
@@ -196,7 +199,8 @@ class Account extends BaseController
     
                 $data = [
                     'page_title'    => 'new annonces',
-                    'session'       => $this->session,  
+                    'session'       => $this->session, 
+                    'activeMenu' 	=> 'account', 
                     'annonce'       => $annonce,
                     'annoncesid'    => $id,
                     'urldata'       => $id . '/' . $userid,

@@ -45,7 +45,7 @@
 
                             <div class="section-title text-center pb-30">
                                 <div class="line m-auto"></div>
-                                <h3 class="title"><span>Liste</span> des mes Annonces</h3>
+                                <h3 class="title"><span>Liste</span> de mes Annonces</h3>
                             </div> <!-- section title -->
 
                             <table class="table table-striped">

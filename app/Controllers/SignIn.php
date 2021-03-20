@@ -21,6 +21,7 @@ class SignIn extends BaseController
 
 		$data = [
 			'page_title' 	=> 'SignIn',
+			'activeMenu' 	=> 'signin',
 			'session' 		=> $this->session,
 			'focusInput' 	=> 'form1Example1'
 		];

@@ -32,7 +32,8 @@ class Home extends BaseController
 		}
 
 		$data = [
-			'page_title' => 'Annonces',
+			'page_title' 	=> 'Annonces',
+			'activeMenu' 	=> 'home',
 			'session'       => $this->session,
 			'annonces'      => $listeAnnonces,
 			'listeCategory' => $this->categoryModel->findAll(),

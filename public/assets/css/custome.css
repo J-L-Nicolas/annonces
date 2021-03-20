@@ -2,7 +2,16 @@
 .cust-title{
     text-shadow: rgb(156, 156, 156) 1px 0px 1px;
 }
-
+/* button signin style */
+.cust-button-signin{
+    background-color: white;
+    border-radius: 3px;
+    padding: 0px 10px;
+    box-shadow: 0 0 2px rgb(100, 100, 100);
+}
+.cust-button-signin:hover{
+    box-shadow: 0 0 4px black;
+}
 .cust-spaceHeader{
     height: 500px;
 }

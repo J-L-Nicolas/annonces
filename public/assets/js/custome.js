@@ -12,7 +12,7 @@ $('#inputGroupFile01').on('change', (e) => {
 })
 
 /* filtre and reload category */
-document.querySelector('#categorySelected').addEventListener('change',(e)=>{
+$('#categorySelected').on('change',(e)=>{
     console.log('ok change category' );
     document.querySelector('#formcategory').submit();
 })
@@ -20,7 +20,7 @@ document.querySelector('#categorySelected').addEventListener('change',(e)=>{
 /* event clik open detail(more) annonce */
 $('.cust-clikmore').on('click', (e) =>{
     let sendId = e.target.id
-    
+   
     rederDom(sendId);
 })
 
@@ -43,7 +43,6 @@ function directRequestApi(url, methode, data){
             if (this.readyState == 4 && this.status == 200) {
                 
                 resolve(JSON.parse(this.responseText));
-                
             }
         };
     });
